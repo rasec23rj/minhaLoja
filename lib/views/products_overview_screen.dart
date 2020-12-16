@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:minhaLoja/data/dummy_data.dart';
 import 'package:minhaLoja/models/product.dart';
@@ -10,7 +12,10 @@ class ProductOverviewScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Minha Loja'),
+          title: Text(
+            'Minha Loja',
+            textAlign: TextAlign.center,
+          ),
         ),
         body: GridView.builder(
           padding: const EdgeInsets.all(10),
