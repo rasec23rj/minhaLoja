@@ -15,16 +15,6 @@ class ProdutcGrid extends StatelessWidget {
         ? providerProducts.itemsProdutosFavorite
         : providerProducts.itemsProdutos;
 
-    // if (showFavoriteOnly) {
-    //   products.itemsProdutosFavorite;
-    // } else if (showFavoriteOnly == false) {
-    //   products.itemsProdutosNotFavorite;
-    // } else {
-    //   products.itemsProdutos;
-    // }
-
-    // global
-    // final providerProducts = Provider.of<ProductsProvider>(context).itemsProdutos;
     return GridView.builder(
       padding: const EdgeInsets.all(10),
       itemCount: products.length,
