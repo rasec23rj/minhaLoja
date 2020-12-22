@@ -26,6 +26,15 @@ class Cart with ChangeNotifier {
     return _items.length;
   }
 
+  double get totalAmount {
+    double total = 0.0;
+    _items.forEach((key, cartItem) {
+      total += cartItem.price * cartItem.quantity;
+    });
+    print("total: ${total}");
+    return total;
+  }
+
   void addItem(Product product) {
     if (_items.containsKey(product.id)) {
       _items.update(
@@ -33,7 +42,7 @@ class Cart with ChangeNotifier {
         (existeItem) => CartItem(
           id: existeItem.id,
           title: existeItem.title,
-          quantity: existeItem.quantity,
+          quantity: existeItem.quantity + 1,
           price: existeItem.price,
         ),
       );
@@ -43,8 +52,8 @@ class Cart with ChangeNotifier {
         () => CartItem(
           id: Random().nextDouble().toString(),
           title: product.title,
-          quantity: 1,
           price: product.price,
+          quantity: 1,
         ),
       );
     }
